@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,12 +15,23 @@ import { CurrentTrainingComponent } from './components/training/current-training
 import { WelcomeComponent } from './components/welcome/welcome.component';
 
 @NgModule({
-  declarations: [AppComponent, SignupComponent, LoginComponent, TrainingComponent, NewTrainingComponent, LastTrainingsComponent, CurrentTrainingComponent, WelcomeComponent],
+  declarations: [
+    AppComponent,
+    SignupComponent,
+    LoginComponent,
+    TrainingComponent,
+    NewTrainingComponent,
+    LastTrainingsComponent,
+    CurrentTrainingComponent,
+    WelcomeComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
