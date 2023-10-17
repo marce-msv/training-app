@@ -1,15 +1,20 @@
-import { Component } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
 })
-export class SignupComponent {
+export class SignupComponent implements OnInit {
   hide = true;
-  emailFormControl = new FormControl(null, [
-    Validators.required,
-    Validators.email,
-  ]);
+  maxDate!: Date;
+
+  onSubmit(form: NgForm) {
+    console.log(form.value);
+  }
+  ngOnInit(): void {
+    this.maxDate = new Date();
+    this.maxDate.setDate(this.maxDate.getFullYear() - 18); // 18 years old
+  }
 }
