@@ -1,3 +1,7 @@
 mat-form-field {
   width: 19rem;
 }
+
+form {
+  margin-top: 1rem;
+}
