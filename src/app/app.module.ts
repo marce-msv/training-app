@@ -15,6 +15,7 @@ import { CurrentTrainingComponent } from './components/training/current-training
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { HeaderComponent } from './components/navigation/header/header.component';
 import { SidenavListComponent } from './components/navigation/sidenav-list/sidenav-list.component';
+import { StopTrainingComponent } from './components/training/stop-training/stop-training.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { SidenavListComponent } from './components/navigation/sidenav-list/siden
     WelcomeComponent,
     HeaderComponent,
     SidenavListComponent,
+    StopTrainingComponent,
   ],
   imports: [
     BrowserModule,
