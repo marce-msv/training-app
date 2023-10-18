@@ -1,1 +1,49 @@
-<p>header works!</p>
+<mat-toolbar color="primary">
+  <div fxHide.gt-xs>
+    <button
+      (click)="onToggleSidenav()"
+      mat-icon-button
+      class="example-icon"
+      aria-label="icon-button with menu icon"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <a routerLink="/" class="logo">
+    <span>LOGO</span>
+  </a>
+  <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+    <ul fxLayout class="nav-items">
+      <li>
+        <a
+          routerLink="/training"
+          mat-icon-button
+          aria-label="icon-button with sport icon"
+        >
+          <mat-icon>fitness_center</mat-icon>
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="login"
+          mat-icon-button
+          aria-label="icon-button with login icon"
+        >
+          <mat-icon>login</mat-icon>
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="signup"
+          mat-icon-button
+          aria-label="icon-button with person icon"
+        >
+          <mat-icon>person</mat-icon>
+        </a>
+        <button mat-icon-button>
+          <mat-icon>logout</mat-icon>
+        </button>
+      </li>
+    </ul>
+  </div>
+</mat-toolbar>
