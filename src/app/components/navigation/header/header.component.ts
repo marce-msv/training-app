@@ -29,11 +29,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
     );
   }
 
-  ngOnDestroy(): void {
-    this.authSubscription.unsubscribe();
+  onLogout(): void {
+    this.authService.logout();
   }
 
   onToggleSidenav(): void {
     this.sidenavToggle.emit();
+  }
+
+  ngOnDestroy(): void {
+    this.authSubscription.unsubscribe();
   }
 }
