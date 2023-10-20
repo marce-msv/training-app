@@ -7,7 +7,7 @@ import { Exercise } from '../interfaces/exercise';
 })
 export class TrainingService {
   exerciseChanged = new Subject<Exercise>();
-  private runningExercise: Exercise;
+  private runningExercise!: Exercise;
   private exercises: Exercise[] = [];
 
   private availableExercises: Exercise[] = [
@@ -18,21 +18,18 @@ export class TrainingService {
   ];
 
   getAvailableExercises() {
-    return this.availableExercises.slice();
+    console.log('getAvailableExercises', this.availableExercises);
+    return [...this.availableExercises];
   }
 
-  startExercise(selectedId: string) {
+  startExercise(selectedId: string): void {
     this.runningExercise = this.availableExercises.find(
       (ex) => ex.id === selectedId
     );
     this.exerciseChanged.next({ ...this.runningExercise });
   }
 
-  getRunningExercise() {
-    return { ...this.runningExercise };
-  }
-
-  completeExercise() {
+  completeExercise(): void {
     this.exercises.push({
       ...this.runningExercise,
       date: new Date(),
@@ -43,15 +40,22 @@ export class TrainingService {
   }
 
   cancelExercise(progress: number) {
-    const data: Exercise = {
+    this.exercises.push({
       ...this.runningExercise,
       duration: this.runningExercise.duration * (progress / 100),
       calories: this.runningExercise.calories * (progress / 100),
       date: new Date(),
       state: 'cancelled',
-    };
-    this.exercises.push(data);
+    });
     this.runningExercise = null;
     this.exerciseChanged.next(null);
+  }
+
+  getRunningExercise() {
+    return { ...this.runningExercise };
+  }
+
+  getCompletedOrCancelledExercises() {
+    return [...this.exercises];
   }
 }

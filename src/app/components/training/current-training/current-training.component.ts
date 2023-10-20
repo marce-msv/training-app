@@ -11,12 +11,16 @@ import { TrainingService } from 'src/app/services/training.service';
 })
 export class CurrentTrainingComponent implements OnInit {
   progress: number = 0;
-  timer: any = 0;
+  timer: any;
 
   constructor(
     private dialog: MatDialog,
     private trainingService: TrainingService
   ) {}
+
+  ngOnInit(): void {
+    this.startOrResumeTimer();
+  }
 
   startOrResumeTimer() {
     const step =
@@ -47,9 +51,5 @@ export class CurrentTrainingComponent implements OnInit {
         this.startOrResumeTimer();
       }
     });
-  }
-
-  ngOnInit(): void {
-    this.startOrResumeTimer();
   }
 }

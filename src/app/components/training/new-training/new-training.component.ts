@@ -10,7 +10,7 @@ import { TrainingService } from 'src/app/services/training.service';
   styleUrls: ['./new-training.component.css'],
 })
 export class NewTrainingComponent implements OnInit {
-  exercises!: Exercise[];
+  exercises: Exercise[] = [];
 
   constructor(private trainingService: TrainingService) {}
 
